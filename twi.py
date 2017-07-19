@@ -2,6 +2,9 @@ import tweepy, csv, re
 from json import *
 from parse import parse
 
+with open('gazprom.csv', 'w') as file:
+	pass
+
 #Авторизация
 def auth(user='ritapoloz'):
 	with open('set.txt', 'r') as file:
@@ -25,8 +28,9 @@ def text(x):
 				y.append(j['infinitive'])
 	return y
 
-api=auth()
-for i in api.user_timeline('gazprom'):
-	#Не все
-	mood=int(input(i.text))
-	write([mood]+text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))))
+if __name__=='__main__':
+	api=auth()
+	for i in tweepy.Cursor(api.user_timeline, id='gazprom').items():
+	#for i in api.user_timeline('gazprom'):
+		mood=int(input(i.text))
+		write([mood]+text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))))

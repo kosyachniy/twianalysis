@@ -1,5 +1,7 @@
 import csv
-from numpy import *
+
+with open('gazprom2.csv', 'w') as file:
+	pass
 
 def read(name='base', sign=','):
 	with open(name+'.csv', 'r') as file:
@@ -12,6 +14,7 @@ def write(text, name='gazprom2', sign=','):
 word=read(name='base')[0]
 twit=read(name='gazprom')
 twits=[]
+write(['!']+['"'+i+'"' for i in word])
 for i in range(len(twit)):
 	twits.append([twit[i][0]])
 	for j in word:
