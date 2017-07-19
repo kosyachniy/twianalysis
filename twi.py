@@ -1,4 +1,4 @@
-import tweepy, csv, re
+import tweepy, csv, re, time
 from json import *
 from parse import parse
 
@@ -24,13 +24,18 @@ def text(x):
 	y=[]
 	for i in parse(x):
 		for j in i.word:
-			if j['speech']!='sign':
+			if j['speech'] in ('noun', 'adjf', 'verb'):
 				y.append(j['infinitive'])
 	return y
 
 if __name__=='__main__':
 	api=auth()
+	k=0
 	for i in tweepy.Cursor(api.user_timeline, id='gazprom').items():
 	#for i in api.user_timeline('gazprom'):
-		mood=int(input(i.text))
-		write([mood]+text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))))
+		#mood=int(input(i.text))
+		write([0]+text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))))
+		k+=1
+		time.sleep(1)
+		if k>=500:
+			break
