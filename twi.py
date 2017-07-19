@@ -1,4 +1,4 @@
-import tweepy, csv
+import tweepy, csv, re
 from json import *
 from parse import parse
 
@@ -28,4 +28,4 @@ def text(x):
 api=auth()
 for i in api.user_timeline('gazprom'):
 	#Не все
-	write(text(i.text))
+	write(text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))))
