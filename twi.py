@@ -28,4 +28,5 @@ def text(x):
 api=auth()
 for i in api.user_timeline('gazprom'):
 	#Не все
-	write(text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))))
+	mood=int(input(i.text))
+	write([mood]+text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))))
