@@ -36,6 +36,7 @@ su=w[0]
 for i in range(len(word)):
 	if word[i] in twit:
 		su+=w[i+1]
+#Заменить на пункты изменения
 x=(exp(su)-exp(-su))/(exp(su)+exp(-su))
 if x<0:
 	print('Курс упадёт с вероятностью {}%'.format(-x*100))

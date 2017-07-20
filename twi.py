@@ -1,4 +1,4 @@
-import tweepy, csv, re, time
+import tweepy, csv, re, time, quandl
 from json import *
 from parse import parse
 
@@ -32,8 +32,9 @@ if __name__=='__main__':
 	api=auth()
 	k=0
 	for i in tweepy.Cursor(api.user_timeline, id='gazprom').items():
-	#for i in api.user_timeline('gazprom'):
-		#mood=int(input(i.text))
+		ti=i.created_at
+		tim='{}-{}-{}'.format(ti.year,ti.month,ti.day)
+		quandl.get("WIKI/AAPL", start_date=tim, end_date=tim, returns="numpy")
 		write([0]+text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))))
 		k+=1
 		time.sleep(1)
