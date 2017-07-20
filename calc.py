@@ -2,9 +2,9 @@ from func import *
 import numpy as np
 from math import exp
 
-with open('gazprom2.csv', 'r') as f:
+with open(mas[ii][0]+'2.csv', 'r') as f:
 	data=np.loadtxt(f, delimiter=',', skiprows=1)
-with open('gazprom2.csv', 'r') as f:
+with open(mas[ii][0]+'2.csv', 'r') as f:
 	y=np.loadtxt(f, delimiter=',', skiprows=1).T[0].T
 
 x=data.T
@@ -24,6 +24,6 @@ for i in range(len(word)):
 		su+=w[i+1]
 print('CLOSE-OPEN')
 if su>0:
-	print('+{}'.format(su))
+	print('+'+str(su))
 else:
 	print(su)

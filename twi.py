@@ -1,7 +1,7 @@
 from func import *
 import tweepy
 
-with open('gazprom.csv', 'w') as file:
+with open(mas[ii][0]+'.csv', 'w') as file:
 	pass
 
 #Авторизация
@@ -30,14 +30,19 @@ def stock(ti):
 		border='eqne'
 	j=json.loads(get('http://iss.moex.com/iss/history/engines/stock/markets/shares/boards/'+border+'/securities.json?date='+data))['history']
 	col=j['columns']
+	l=0
 	for i in j['data']:
-		if i[col.index('SECID')]=='GAZP':
+		if i[col.index('SECID')]==mas[ii][2]:
 			l=round(i[col.index('CLOSE')]-i[col.index('OPEN')],2)
 	return l if l else 0
 
 if __name__=='__main__':
 	api=auth()
-	for i in tweepy.Cursor(api.user_timeline, id='gazprom').items():
+	k=0
+	#Создаются лишние строки
+	for i in tweepy.Cursor(api.user_timeline, id=mas[ii][0]).items():
 		mood=stock(i.created_at)
-		write([mood]+text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))), name='gazprom', typ='a')
+		write([mood]+text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))), name=mas[ii][0], typ='a')
+		k+=1
+		print(k, mood)
 		time.sleep(1)
