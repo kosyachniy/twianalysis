@@ -1,16 +1,8 @@
-import csv
-
-def read(name='gazprom', sign=','):
-	with open(name+'.csv', 'r') as file:
-		return [i for i in csv.reader(file, delimiter=sign, quotechar=' ')]
-
-def write(text, name='base', sign=','):
-	with open(name+'.csv', 'w') as file:
-		csv.writer(file, delimiter=sign, quotechar=' ', quoting=csv.QUOTE_MINIMAL).writerow(text)
+from func import *
 
 word=[] #set()
 k=[]
-for i in read():
+for i in read(name='gazprom'):
 	for j in i[1:]:
 		if j not in word:
 			word.append(j) #add(j)
@@ -31,4 +23,4 @@ while True:
 		i+=1
 print(len(k))
 #
-write(word)
+write(word, name='base', typ='w')

@@ -37,11 +37,7 @@ def stock(ti):
 
 if __name__=='__main__':
 	api=auth()
-	k=0
 	for i in tweepy.Cursor(api.user_timeline, id='gazprom').items():
 		mood=stock(i.created_at)
-		write([mood]+text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))))
-		k+=1
+		write([mood]+text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))), name='gazprom', typ='a')
 		time.sleep(1)
-		if k>=5:
-			break
