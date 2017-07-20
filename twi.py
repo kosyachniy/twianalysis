@@ -1,7 +1,7 @@
 from func import *
 import tweepy
 
-with open(mas[ii][0]+'-twits.csv', 'w') as file:
+with open('data/'+mas[ii][0]+'-twits.csv', 'w') as file:
 	pass
 
 #Авторизация

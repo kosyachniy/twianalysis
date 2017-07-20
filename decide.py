@@ -1,7 +1,8 @@
 from func import *
 
 word=read(name=mas[ii][0]+'-base')[0]
-w=read(name=mas[ii][0]+'-weights')[0]
+with open('data/'+mas[ii][0]+'-weights.csv', 'r') as f:
+	w=np.loadtxt(f, delimiter=',')
 
 twit=text(input())
 su=w[0]

@@ -1,4 +1,4 @@
-**/__pycache__
-*.csv
+__pycache__/
+data/
 -/
 +/

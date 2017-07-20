@@ -1,6 +1,6 @@
 from func import *
 
-with open(mas[ii][0]+'-table.csv', 'w') as file:
+with open('data/'+mas[ii][0]+'-table.csv', 'w') as file:
 	pass
 
 word=read(name=mas[ii][0]+'-base')[0]
@@ -15,7 +15,7 @@ while i<len(twit):
 		i+=1
 	else:
 		del twit[i]
-#
+#python3 
 
 for i in range(len(twit)):
 	twits.append([twit[i][0]])
