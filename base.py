@@ -2,7 +2,7 @@ from func import *
 
 word=[] #set()
 k=[]
-for i in read(name=mas[ii][0]):
+for i in read(name=mas[ii][0]+'-twits'):
 	for j in i[1:]:
 		if j not in word:
 			word.append(j) #add(j)
@@ -23,4 +23,4 @@ while True:
 		i+=1
 print(len(k))
 #
-write(word, name='base', typ='w')
+write(word, name=mas[ii][0]+'-base', typ='w')
