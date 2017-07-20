@@ -1,12 +1,17 @@
-import requests, json
+import requests, json, csv, re, time
+from parse import parse
 
 def get(src):
 	return requests.get(src).text
 
-if __name__=='__main__':
-	data='2013-12-20'
-	j=json.loads(get('http://iss.moex.com/iss/history/engines/stock/markets/shares/boards/tqne/securities.json?date='+data))['history']
-	col=j['columns']
-	for i in j['data']:
-		if i[col.index('SECID')]=='GAZP':
-			print(round(i[col.index('CLOSE')]-i[col.index('OPEN')],2))
+def write(text, name='gazprom', sign=','):
+	with open(name+'.csv', 'a') as file:
+		csv.writer(file, delimiter=sign, quotechar=' ', quoting=csv.QUOTE_MINIMAL).writerow(text)
+
+def text(x):
+	y=[]
+	for i in parse(x):
+		for j in i.word:
+			if j['speech'] in ('noun', 'adjf', 'verb'):
+				y.append(j['infinitive'])
+	return y
