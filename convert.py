@@ -15,7 +15,7 @@ while i<len(twit):
 		i+=1
 	else:
 		del twit[i]
-#python3 
+#
 
 for i in range(len(twit)):
 	twits.append([twit[i][0]])

@@ -3,7 +3,7 @@ from parse import parse
 import numpy as np
 
 mas=[['gazprom','газпром','GAZP'],['sberbank','сбербанк','SBRF'],['aeroflot','аэрофлот','AFLT']]
-ii=0
+ii=0 #
 
 def get(src):
 	return requests.get(src).text
