@@ -1,8 +1,8 @@
 import requests, json, csv, re, time
 from parse import parse
 
-mas=[['gazprom','газпром','GAZP'],['sberbank','сбербанк','SBRF']]
-ii=0
+mas=[['gazprom','газпром','GAZP'],['sberbank','сбербанк','SBRF'],['aeroflot','аэрофлот','AFLT']]
+ii=2
 
 def get(src):
 	return requests.get(src).text
