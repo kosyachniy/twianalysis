@@ -43,7 +43,7 @@ if __name__=='__main__':
 		if not i.is_quote_status and not i.in_reply_to_user_id and not i.in_reply_to_status_id:
 			mood=stock(i.created_at)
 			try:
-				write([mood]+text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))), name=mas[ii][0]+'-twits', typ='a')
+				write([mood]+text(re.sub(r'https://t.co/\w+$', '', re.sub(r'https://t.co/\w+ ', '', i.text))), name='twits', typ='a')
 			except:
 				print('Error in tweet №{}'.format(i.id))
 			else:

@@ -1,12 +1,12 @@
 from func import *
 
-data=numread('table', 1)
-y=numread('table', 1).T[0].T
-
-x=data.T
+x=numread('table', 1).T
 for i in range(len(x[0])):
 	x[0][i]=1
 x=x.T
+
+y=numread('table', 1).T[0].T
+
 re=np.linalg.inv(x.T.dot(x)).dot(x.T)
 w=re.dot(y)
 

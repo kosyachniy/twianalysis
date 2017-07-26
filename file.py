@@ -29,7 +29,7 @@ if __name__=='__main__':
 			s=json.loads(i)
 			mood=stock(s['date'][6:10], s['date'][3:5], s['date'][0:2])
 			try:
-				write([mood]+text(s['name']), name=mas[ii][0]+'-twits', typ='a')
+				write([mood]+text(s['name']), name='twits', typ='a')
 			except:
 				print('Error in string:'+s)
 			else:

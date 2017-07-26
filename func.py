@@ -13,11 +13,11 @@ def delete(name):
 
 def write(text, name, typ='a', sign=','):
 	if len(text):
-		with open('data/'+name+'.csv', typ) as file:
+		with open('data/'+mas[ii][0]+'-'+name+'.csv', typ) as file:
 			csv.writer(file, delimiter=sign, quotechar=' ', quoting=csv.QUOTE_MINIMAL).writerow(text)
 
 def read(name, sign=','):
-	with open('data/'+name+'.csv', 'r') as file:
+	with open('data/'+mas[ii][0]+'-'+name+'.csv', 'r') as file:
 		return [i for i in csv.reader(file, delimiter=sign, quotechar=' ')]
 
 def numread(name, nom=0):
