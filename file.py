@@ -1,4 +1,5 @@
 from func import *
+import codecs
 
 with open('data/'+mas[ii][0]+'-twits.csv', 'w') as file:
 	pass
@@ -24,7 +25,7 @@ def stock(ye, mo, da):
 
 if __name__=='__main__':
 	k=0
-	with open('data/db.txt', 'r') as file:
+	with codecs.open('data/db3.txt', 'r', 'utf8') as file:
 		for i in file:
 			s=json.loads(i)
 			mood=stock(s['date'][6:10], s['date'][3:5], s['date'][0:2])

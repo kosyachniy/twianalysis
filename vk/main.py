@@ -16,4 +16,4 @@ while True:
 			else:
 				cont=round(decide(i)*100000000, 2) #
 				send(id, '+'+str(cont) if cont>0 else cont)
-	time.sleep(15)
+	time.sleep(5)
