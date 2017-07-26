@@ -1,8 +1,7 @@
 from func import *
 import tweepy
 
-with open('data/'+mas[ii][0]+'-twits.csv', 'w') as file:
-	pass
+delete('twits')
 
 #Авторизация
 def auth(user='ritapoloz'):

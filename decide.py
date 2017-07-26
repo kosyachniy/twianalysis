@@ -2,8 +2,7 @@ from func import *
 
 def decide(cont):
 	word=read(name=mas[ii][0]+'-base')[0]
-	with open('data/'+mas[ii][0]+'-weights.csv', 'r') as f:
-		w=np.loadtxt(f, delimiter=',')
+	w=numread('weights')
 
 	twit=text(cont)
 	su=w[0]

@@ -5,17 +5,24 @@ import numpy as np
 mas=[['gazprom','газпром','GAZP'],['sberbank','сбербанк','SBRF'],['aeroflot','аэрофлот','AFLT']]
 ii=0 #
 
-def get(src):
-	return requests.get(src).text
+get=lambda src: requests.get(src).text
 
-def write(text, name=mas[ii][0], typ='a', sign=','):
+def delete(name):
+	with open('data/'+mas[ii][0]+'-'+name+'.csv', 'w') as file:
+		pass
+
+def write(text, name, typ='a', sign=','):
 	if len(text):
 		with open('data/'+name+'.csv', typ) as file:
 			csv.writer(file, delimiter=sign, quotechar=' ', quoting=csv.QUOTE_MINIMAL).writerow(text)
 
-def read(name=mas[ii][0], sign=','):
+def read(name, sign=','):
 	with open('data/'+name+'.csv', 'r') as file:
 		return [i for i in csv.reader(file, delimiter=sign, quotechar=' ')]
+
+def numread(name, nom=0):
+	with open('data/'+mas[ii][0]+'-'+name+'.csv', 'r') as f:
+		return np.loadtxt(f, delimiter=',', skiprows=nom)
 
 def text(x):
 	y=[]

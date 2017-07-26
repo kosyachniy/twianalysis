@@ -1,7 +1,6 @@
 from func import *
 
-with open('data/'+mas[ii][0]+'-table.csv', 'w') as file:
-	pass
+delete('table')
 
 word=read(name=mas[ii][0]+'-base')[0]
 twit=read(name=mas[ii][0]+'-twits')

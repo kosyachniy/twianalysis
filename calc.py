@@ -1,9 +1,7 @@
 from func import *
 
-with open('data/'+mas[ii][0]+'-table.csv', 'r') as f:
-	data=np.loadtxt(f, delimiter=',', skiprows=1)
-with open('data/'+mas[ii][0]+'-table.csv', 'r') as f:
-	y=np.loadtxt(f, delimiter=',', skiprows=1).T[0].T
+data=numread('table', 1)
+y=numread('table', 1).T[0].T
 
 x=data.T
 for i in range(len(x[0])):
