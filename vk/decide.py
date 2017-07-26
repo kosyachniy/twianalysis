@@ -7,7 +7,9 @@ def decide(cont):
 
 	twit=text(cont)
 	su=w[0]
+	k=0
 	for i in range(len(word)):
 		if word[i] in twit:
+			k+=1
 			su+=w[i+1]
-	return su
+	return su if k else 0
