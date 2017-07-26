@@ -17,8 +17,6 @@ for i in yyy:
 	qw.append([float(i)])
 yy=np.array(qw)
 
-print(xx,yy)
-
 #Объявляем входное значение x, вес w, какое значение должны получить y
 x = tf.placeholder(tf.float32, shape=(len(xx[0]),))
 y = tf.placeholder(tf.float32, shape=(1,))
@@ -36,10 +34,11 @@ optimizer = tf.train.GradientDescentOptimizer(0.05).minimize(loss)
 #Запуск обучения
 with tf.Session() as session:
 	tf.global_variables_initializer().run()
-	for i in range(len(xx)):
-		feed_dict={x: xx[i:(i+1)][0], y: yy[i:(i+1)][0]}
-		_, l = session.run([optimizer, loss], feed_dict=feed_dict)
-		print("ошибка: %f" % (l, ))
+	for j in range(100):
+		for i in range(len(xx)):
+			feed_dict={x: xx[i:(i+1)][0], y: yy[i:(i+1)][0]}
+			_, l = session.run([optimizer, loss], feed_dict=feed_dict)
+			print("ошибка: %f" % (l, ))
 
 	iii=session.run(w)[0]
 	np.savetxt('data/'+mas[ii][0]+'-weights.csv', iii, delimiter=',')
