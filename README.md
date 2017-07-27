@@ -1,8 +1,6 @@
 # Twitter Analysis
 
-Twi		| -> Base -> Convert -> Calc ->	| Decide
-
-Load -> File	|				| Vk
+![Порядок запуска](https://github.com/kosyachniy/twianalysis/blob/master/1.png)
 
 [Группа ВКонтакте](https://vk.com/zodzu)
 

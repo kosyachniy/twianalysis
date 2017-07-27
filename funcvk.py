@@ -1,6 +1,7 @@
-import vk_api, time
+import vk_api, json
 
-vk=vk_api.VkApi(token='44177b16755f6d96acf4fae0a8dd0700472f1e473943769aea355c3b1cfab3c446c981b2990345b60a4cb')
+with open('set.txt', 'r') as file:
+	vk=vk_api.VkApi(token=json.loads(file.read())['token'])
 vk.auth()
 
 send=lambda user, cont: vk.method('messages.send', {'user_id':user, 'message':cont})
@@ -11,5 +12,3 @@ def read():
 		if not i['read_state']:
 			cont.append([i['user_id'], i['body']])
 	return cont[::-1]
-
-dial=lambda: [i['message']['user_id'] for i in vk.method('messages.getDialogs')['items']]
