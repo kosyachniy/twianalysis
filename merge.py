@@ -12,10 +12,14 @@ xx=xx.T
 
 yy=np.array([[float(i)] for i in yyy])
 
+#Вычисления
+re=np.linalg.inv(xx.T.dot(xx)).dot(xx.T)
+ww=re.dot(yyy)
+
 #Объявляем входное значение x, вес w, какое значение должны получить y
 x=tf.placeholder(tf.float32, shape=(len(xx[0]),))
 y=tf.placeholder(tf.float32, shape=(1,))
-w=tf.Variable(tf.zeros([1, len(xx[0])]))
+w=tf.Variable(ww)
 #b = tf.Variable(tf.zeros([1]))
 
 #Получаем выходное значение

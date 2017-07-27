@@ -6,13 +6,13 @@ def decide(cont):
 
 	k=0
 	su=w[0]
-	for i in range(len(word)):
-		if word[i] in text(cont):
+	for i in text(cont):
+		if i in word:
 			k+=1
-			su+=w[i+1]
+			su+=w[word.index(i)+1]
 
 	su=round(su, 2) if k else 0
-	return ('+'+str(su) if su>0 else str(su)) if su else 'По этим данным невозможно предсказать курс!'
+	return ('+'+str(su) if su>0 else str(su)) if su else 'Эти данные не влияют на курс!'
 
 if __name__=='__main__':
 	a=decide(input())
