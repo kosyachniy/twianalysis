@@ -13,6 +13,8 @@
 
 Биржи
 ---
+[Yandex](https://news.yandex.ru/quotes/29.html)
+
 [Московская биржа](http://www.moex.com/ru/issue.aspx?board=TQBR&code=GAZP)
 
 [Google Финансы](https://www.google.com/finance?q=MCX%3AGAZP&sq=gazprom&sp=2&ei=ryV5WaDmEpyUswGrsrOgBw)
